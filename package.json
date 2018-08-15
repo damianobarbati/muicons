@@ -1,0 +1,130 @@
+{
+    "name": "mdicons",
+    "version": "0.1.0",
+    "license": "MIT",
+    "author": "Damiano Barbati <damiano.barbati@gmail.com> (http://github.com/damianobarbati)",
+    "repository": "https://github.com/damianobarbati/mdicons",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "scripts": {
+        "codebase:size": "find -E . -regex '.*\\.(js|html|css|yml|sh)$' -not -path './node_modules/**' -not -path './dist/**' -not -path './ssl/**' | xargs wc -l",
+        "jslint": "eslint **/*.js --ignore-path .gitignore",
+        "build": "node build.js",
+        "build:dev": "NODE_ENV=development node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js --mode development --progress --watch",
+        "build:prod": "NODE_ENV=production node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js --mode production --progress"
+    },
+    "sideEffects": false,
+    "browserslist": [
+        "chrome 64",
+        "safari 11.1",
+        "ios_saf 11.3"
+    ],
+    "eslintConfig": {
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 9,
+            "sourceType": "module",
+            "impliedStrict": true,
+            "ecmaFeatures": {
+                "jsx": true,
+                "impliedStrict": true,
+                "globalReturn": false,
+                "experimentalObjectRestSpread": true
+            }
+        },
+        "env": {
+            "browser": true,
+            "serviceworker": true,
+            "node": true,
+            "jest": true,
+            "es6": true
+        },
+        "plugins": [
+            "react",
+            "jest"
+        ],
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended",
+            "plugin:jest/recommended"
+        ]
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "modules": false,
+                    "useBuiltIns": "usage",
+                    "debug": true
+                }
+            ],
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            [
+                "@babel/plugin-proposal-decorators",
+                {
+                    "legacy": true
+                }
+            ],
+            [
+                "@babel/plugin-proposal-class-properties",
+                {
+                    "loose": false
+                }
+            ],
+            "@babel/plugin-proposal-export-default-from",
+            "@babel/plugin-proposal-export-namespace-from",
+            "@babel/plugin-proposal-json-strings",
+            "@babel/plugin-syntax-dynamic-import",
+            "lodash"
+        ]
+    },
+    "jest": {
+        "bail": true,
+        "verbose": true,
+        "testURL": "http://localhost",
+        "transformIgnorePatterns": [
+            "!node_modules/react-runtime"
+        ],
+        "setupFiles": [
+            "raf/polyfill"
+        ],
+        "setupTestFrameworkScriptFile": "jest-extended"
+    },
+    "peerDependencies": {
+        "react": "^16.4.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-class-properties": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-decorators": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-export-default-from": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-export-namespace-from": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-json-strings": "^7.0.0-rc.1",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
+        "@babel/preset-env": "^7.0.0-rc.1",
+        "@babel/preset-react": "^7.0.0-rc.1",
+        "babel-core": "^7.0.0-0",
+        "babel-eslint": "^8.2.1",
+        "babel-jest": "^23.0.1",
+        "babel-loader": "^8.0.0-beta.1",
+        "babel-plugin-lodash": "^3.3.2",
+        "better-console": "^1.0.1",
+        "case-sensitive-paths-webpack-plugin": "^2.1.2",
+        "clean-webpack-plugin": "^0.1.19",
+        "eslint": "^5.1.0",
+        "eslint-loader": "^2.0.0",
+        "eslint-plugin-jest": "^21.15.0",
+        "eslint-plugin-react": "^7.7.0",
+        "glob": "^7.1.2",
+        "jest": "^23.1.0",
+        "jest-extended": "^0.7.2",
+        "lodash": "^4.17.4",
+        "uglifyjs-webpack-plugin": "^1.2.7",
+        "webpack": "^4.16.0",
+        "webpack-command": "^0.4.1",
+        "webpack-notifier": "^1.6.0"
+    }
+}
