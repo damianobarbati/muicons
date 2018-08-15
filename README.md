@@ -1,6 +1,6 @@
 # muicons
 
-The full community Material icon set converted to handy `<svg />` components.
+The full community Material icons set converted to handy `<svg />` components.
 
 Check out all the icons here: https://petershaggynoble.github.io/MDI-Sandbox/.
 
