@@ -7,7 +7,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const NotifierPlugin = require('webpack-notifier');
 
-const icons = glob.sync('./src/*.js').slice(0, 2000).reduce((accumulator, file) => {
+const icons = glob.sync('./src/*.js').slice(0, 2000).reduce((accumulator, file) => { // remove slice after https://github.com/webpack/webpack/issues/7731 is solved
     const name = path.basename(file, '.js');
     accumulator[name] = file;
     return accumulator;
