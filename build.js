@@ -30,6 +30,7 @@ const icons = files.map(file => {
 execSync('rm -f ./src/*.js', { stdio: [0,1,2] });
 
 let indexJSContent = '';
+let showCaseHTMLContent = '';
 
 for (const { name, attribute, value } of icons) {
     const iconJSContent =
@@ -42,8 +43,52 @@ export default props => (
 
     indexJSContent += `export ${name} from './${name}.js';\n`;
     fs.writeFileSync(`./src/${name}.js`, iconJSContent);
+
+    showCaseHTMLContent += `
+<div>
+    <svg viewBox="0 0 24 24">
+        <path ${attribute}="${value}" />
+    </svg>
+    <span>${name}</span>
+</div>
+    `
 }
 
+showCaseHTMLContent = `
+<html>
+<head>
+<style>
+body {
+    margin: 15px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    grid-row-gap: 30px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+div {
+    width: 100%;
+    text-align: center;
+}
+svg {
+    width: 40px;
+    fill: #444
+}
+span {
+    display: block;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+    font-family: Verdana;
+}
+</style>
+</head>
+<body>${showCaseHTMLContent}</body>
+</html>`;
+
 fs.writeFileSync('./src/index.js', indexJSContent);
+fs.writeFileSync('./showcase.html', showCaseHTMLContent);
 
 execSync('rm -rf MaterialDesign', { stdio: [0, 1, 2] });
