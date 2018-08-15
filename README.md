@@ -1,4 +1,4 @@
-# mdicons
+# muicons
 
 The full community Material icon set converted to handy `<svg />` components.
 
@@ -9,9 +9,9 @@ Icons offical repo: https://github.com/Templarian/MaterialDesign.
 ## Usage
 Install:
 ```
-yarn add --dev mdicons
+yarn add --dev muicons
 ```
 Import:
 ```
-import HomeIcon from 'mdicons/dist/Home.js';
+import HomeIcon from 'muicons/dist/Home.js';
 ```
