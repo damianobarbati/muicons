@@ -35,13 +35,14 @@ let showCaseHTMLContent = '';
 for (const { name, attribute, value } of icons) {
     const iconJSContent =
 `import React from 'react';
+
 export default props => (
     <svg viewBox={'0 0 24 24'} {...props}>
         <path ${attribute}={'${value}'} />
     </svg>
 );`;
 
-    indexJSContent += `export ${name} from './${name}.js';\n`;
+    indexJSContent += `export { default as ${name} } from './${name}.js';\n`;
     fs.writeFileSync(`./src/${name}.js`, iconJSContent);
 
     showCaseHTMLContent += `

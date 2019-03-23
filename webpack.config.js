@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const glob = require('glob');
 const CaseSensitivePlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 const NotifierPlugin = require('webpack-notifier');
 
 const icons = glob.sync('./src/*.js').slice(0, 2000).reduce((accumulator, file) => { // remove slice after https://github.com/webpack/webpack/issues/7731 is solved
@@ -29,9 +29,8 @@ const config = module.exports = {
     },
     plugins: [
         new CaseSensitivePlugin(),
-        new CleanPlugin('./dist', {
-            root: path.resolve('./'),
-            verbose: true
+        new CleanPlugin({
+            cleanOnceBeforeBuildPatterns: path.resolve('./dist'),
         }),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new NotifierPlugin({
@@ -83,11 +82,11 @@ const config = module.exports = {
 if(process.env.NODE_ENV !== 'development') {
     config.optimization = {
         minimizer: [
-            new UglifyJsPlugin({
-                parallel: true,
+            new TerserPlugin({
                 cache: true,
+                parallel: true,
                 sourceMap: true,
-                uglifyOptions: {
+                terserOptions: {
                     compress: {
                         inline: false,
                     },
