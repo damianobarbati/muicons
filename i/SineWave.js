@@ -1,0 +1,13 @@
+import "core-js/modules/es.object.assign";
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import React from 'react';
+export default (function () {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: '0 0 24 24'
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: 'M16.5,21C13.5,21 12.31,16.76 11.05,12.28C10.14,9.04 9,5 7.5,5C4.11,5 4,11.93 4,12H2C2,11.63 2.06,3 7.5,3C10.5,3 11.71,7.25 12.97,11.74C13.83,14.8 15,19 16.5,19C19.94,19 20.03,12.07 20.03,12H22.03C22.03,12.37 21.97,21 16.5,21Z'
+  }));
+});

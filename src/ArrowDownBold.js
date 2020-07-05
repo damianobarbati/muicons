@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default props => (
+export default (props = {}) => (
     <svg viewBox={'0 0 24 24'} {...props}>
-        <path d={'M 9,4.00001L 15,4.00001L 15,12L 19.8388,12L 12,19.8388L 4.16116,12L 9,12L 9,4.00001 Z '} />
+        <path d={'M9,4H15V12H19.84L12,19.84L4.16,12H9V4Z'} />
     </svg>
 );

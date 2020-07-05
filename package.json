@@ -4,86 +4,21 @@
     "license": "MIT",
     "author": "Damiano Barbati <damiano.barbati@gmail.com> (http://github.com/damianobarbati)",
     "repository": "https://github.com/damianobarbati/muicons",
-    "main": "dist/index.js",
-    "module": "dist/index.js",
+    "exports": {
+        "./": "./dist"
+    },
     "scripts": {
-        "codebase:size": "find -E . -regex '.*\\.(js|html|css|yml|sh)$' -not -path './node_modules/**' -not -path './dist/**' -not -path './ssl/**' | xargs wc -l",
-        "jslint": "eslint **/*.js --ignore-path .gitignore",
-        "build": "node build.js",
-        "build:dev": "NODE_ENV=development node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js --mode development --progress --watch",
-        "build:prod": "NODE_ENV=production node --max_old_space_size=8192 ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js --mode production --progress"
-    },
-    "sideEffects": false,
-    "browserslist": [
-        "chrome 64",
-        "safari 11.1",
-        "ios_saf 11.3"
-    ],
-    "eslintConfig": {
-        "parser": "babel-eslint",
-        "parserOptions": {
-            "ecmaVersion": 9,
-            "sourceType": "module",
-            "impliedStrict": true,
-            "ecmaFeatures": {
-                "jsx": true,
-                "impliedStrict": true,
-                "globalReturn": false,
-                "experimentalObjectRestSpread": true
-            }
-        },
-        "env": {
-            "browser": true,
-            "serviceworker": true,
-            "node": true,
-            "jest": true,
-            "es6": true
-        },
-        "plugins": [
-            "react",
-            "jest"
-        ],
-        "extends": [
-            "eslint:recommended",
-            "plugin:react/recommended",
-            "plugin:jest/recommended"
-        ]
-    },
-    "babel": {
-        "presets": [
-            [
-                "@babel/preset-env",
-                {
-                    "modules": false,
-                    "useBuiltIns": "usage",
-                    "debug": true
-                }
-            ],
-            "@babel/preset-react"
-        ]
-    },
-    "peerDependencies": {
-        "react": "^16.4.0"
+        "eslint": "eslint --ignore-path .gitignore",
+        "build": "rm -f src/* i/* && node build.js && npx babel src --out-dir i"
     },
     "devDependencies": {
-        "@babel/core": "^7.4.0",
-        "@babel/preset-env": "^7.4.2",
-        "@babel/preset-react": "^7.0.0",
-        "babel-core": "^7.0.0-0",
-        "babel-eslint": "^10.0.1",
-        "babel-loader": "^8.0.5",
-        "better-console": "^1.0.1",
-        "case-sensitive-paths-webpack-plugin": "^2.2.0",
-        "clean-webpack-plugin": "^2.0.1",
-        "eslint": "^5.15.3",
-        "eslint-loader": "^2.1.2",
-        "eslint-plugin-jest": "^22.4.1",
-        "eslint-plugin-react": "^7.12.4",
-        "glob": "^7.1.3",
-        "terser-webpack-plugin": "^1.2.3",
-        "uglifyjs-webpack-plugin": "^2.1.2",
-        "webpack": "^4.29.6",
-        "webpack-cli": "^3.3.0",
-        "webpack-notifier": "^1.7.0"
+        "@babel/cli": "^7.10.4",
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/preset-react": "^7.10.4",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.4.0",
+        "glob": "^7.1.6",
+        "parcel": "^1.12.4"
     }
 }

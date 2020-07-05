@@ -1,16 +1,13 @@
-const console = require('better-console');
 const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process');
 const { upperFirst, camelCase } = require('lodash');
 const glob = require('glob');
 
-execSync('rm -rf MaterialDesign', { stdio: [0, 1, 2] });
-execSync('rm -rf ./src/*', { stdio: [0, 1, 2] });
-
+execSync('rm -rf MaterialDesign ./src/*', { stdio: [0, 1, 2] });
 execSync('git clone git@github.com:Templarian/MaterialDesign.git --depth 1', { stdio: [0,1,2] });
 
-const files = glob.sync('./MaterialDesign/icons/svg/*.svg');
+const files = glob.sync('./MaterialDesign/svg/*.svg');
 
 const icons = files.map(file => {
     const name = upperFirst(camelCase(path.basename(file, '.svg')));
@@ -26,23 +23,20 @@ const icons = files.map(file => {
     }
 }).filter(value => value);
 
-//clean up previous if any
-execSync('rm -f ./src/*.js', { stdio: [0,1,2] });
-
-let indexJSContent = '';
+// let indexJSContent = '';
 let showCaseHTMLContent = '';
 
 for (const { name, attribute, value } of icons) {
     const iconJSContent =
 `import React from 'react';
 
-export default props => (
+export default (props = {}) => (
     <svg viewBox={'0 0 24 24'} {...props}>
         <path ${attribute}={'${value}'} />
     </svg>
 );`;
 
-    indexJSContent += `export { default as ${name} } from './${name}.js';\n`;
+    // indexJSContent += `export { default as ${name} } from './${name}.js';\n`;
     fs.writeFileSync(`./src/${name}.js`, iconJSContent);
 
     showCaseHTMLContent += `
@@ -89,7 +83,6 @@ span {
 <body>${showCaseHTMLContent}</body>
 </html>`;
 
-fs.writeFileSync('./src/index.js', indexJSContent);
 fs.writeFileSync('./showcase.html', showCaseHTMLContent);
 
 execSync('rm -rf MaterialDesign', { stdio: [0, 1, 2] });

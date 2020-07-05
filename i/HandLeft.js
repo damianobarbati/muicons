@@ -1,0 +1,13 @@
+import "core-js/modules/es.object.assign";
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import React from 'react';
+export default (function () {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: '0 0 24 24'
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: 'M3,6.58V18.67C3,20.5 4.5,22 6.33,22H12.42C13.32,22 14.17,21.64 14.79,21L21.33,14.36C21.33,14.36 20.28,13.33 20.25,13.32C20.07,13.16 19.84,13.07 19.59,13.07C19.41,13.07 19.24,13.12 19.09,13.21C19.06,13.22 15.5,15.26 15.5,15.26V5.33A1.25,1.25 0 0,0 14.25,4.08A1.25,1.25 0 0,0 13,5.33V11.17H12.17V3.25A1.25,1.25 0 0,0 10.92,2A1.25,1.25 0 0,0 9.67,3.25V11.17H8.83V4.08A1.25,1.25 0 0,0 7.58,2.83A1.25,1.25 0 0,0 6.33,4.08V11.17H5.5V6.58A1.25,1.25 0 0,0 4.25,5.33A1.25,1.25 0 0,0 3,6.58Z'
+  }));
+});
