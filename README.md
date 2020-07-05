@@ -1,6 +1,6 @@
 # muicons
 
-The full community Material icons set converted to handy `<svg />` components.
+The full community Material icons set converted to handy React `<svg />` components.
 
 References:  
 - official source: <https://materialdesignicons.com>
@@ -13,7 +13,12 @@ Install:
 ```
 yarn add --dev muicons
 ```
-Import:
+
+Import and use:
 ```
 import HomeIcon from 'muicons/i/Home.js';
+
+...
+<HomeIcon onClick={Function.prototype} />
+...
 ```
