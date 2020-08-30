@@ -1,0 +1,13 @@
+import "core-js/modules/es.object.assign";
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import React from 'react';
+export default (function () {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: '0 0 24 24'
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: 'M4 8H2V2H4V8M2 22H4V16H2V22M3 10C1.9 10 1 10.9 1 12C1 13.11 1.9 14 3 14C4.11 14 5 13.11 5 12C5 10.9 4.11 10 3 10M24 6V18C24 19.11 23.11 20 22 20H10C8.9 20 8 19.11 8 18V14L6 12L8 10V6C8 4.89 8.9 4 10 4H22C23.11 4 24 4.89 24 6M17.41 12L19.53 9.88L18.12 8.47L16 10.59L13.88 8.47L12.47 9.88L14.59 12L12.47 14.12L13.88 15.53L16 13.41L18.12 15.53L19.53 14.12L17.41 12Z'
+  }));
+});

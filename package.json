@@ -9,16 +9,18 @@
     },
     "scripts": {
         "eslint": "eslint --ignore-path .gitignore",
-        "build": "rm -f src/* i/* && node build.js && npx babel src --out-dir i"
+        "build": "rm -rf ./src ./i; mkdir src i && node build.js && npx babel src --out-dir i"
     },
     "devDependencies": {
-        "@babel/cli": "^7.10.4",
-        "@babel/core": "^7.10.4",
-        "@babel/preset-env": "^7.10.4",
+        "@babel/cli": "^7.10.5",
+        "@babel/core": "^7.11.4",
+        "@babel/preset-env": "^7.11.0",
         "@babel/preset-react": "^7.10.4",
         "babel-eslint": "^10.1.0",
-        "eslint": "^7.4.0",
+        "eslint": "^7.7.0",
+        "eslint-plugin-react": "^7.20.6",
         "glob": "^7.1.6",
-        "parcel": "^1.12.4"
+        "parcel": "^1.12.4",
+        "react": "^16.13.1"
     }
 }

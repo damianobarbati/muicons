@@ -8,6 +8,6 @@ export default (function () {
   return /*#__PURE__*/React.createElement("svg", _extends({
     viewBox: '0 0 24 24'
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: 'M19,17H21V9H19M19,21H21V19H19M1,21H17V7H21V1'
+    d: 'M19 17H21V11H19M19 21H21V19H19M1 21H17V9H21V1'
   }));
 });
