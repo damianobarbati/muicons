@@ -1,4 +1,4 @@
-import "core-js/modules/es.object.assign";
+import "core-js/modules/es.object.assign.js";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -8,6 +8,6 @@ export default (function () {
   return /*#__PURE__*/React.createElement("svg", _extends({
     viewBox: '0 0 24 24'
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: 'M18 14V6H13V14L15.5 12.5L18 14M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2M20 16H6L4 18V4H20V16Z'
+    d: 'M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2M20 16H5.2L4 17.2V4H20V16M18 14V6H13V14L15.5 12.5L18 14'
   }));
 });
